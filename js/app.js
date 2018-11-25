@@ -33,8 +33,20 @@ Enemy.prototype.render = function() {
 
 
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
+function createEnemies() {
+  for (let i = 0; i < 3; i++) {
+    //initialize variables for enemies
+    let x = 0;
+    let y = 83 + (83 * i);
+    let speed = 200 - (50 * i);
+    //create enemies and add to allEnemies array
+    allEnemies[i] = new Enemy(x, y, speed);
+  }
+}
+createEnemies();
+console.log(allEnemies);
 // Place the player object in a variable called player
+
 
 
 
