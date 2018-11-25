@@ -31,7 +31,10 @@ Enemy.prototype.render = function() {
 var Player = function(x, y) {
   this.x = x;
   this.y = y;
-  this.sprite = 'images/char-boy.png';
+  this.sprite = 'images/char-horn-girl.png';
+  // handleInput() {
+  //
+  // };
 };
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -60,9 +63,9 @@ function createEnemies() {
 createEnemies();
 console.log(allEnemies);
 //choosePlayer();
+// Place the player object in a variable called player
 player = new Player(202, 410);
 console.log(player);
-// Place the player object in a variable called player
 
 
 
