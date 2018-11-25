@@ -1,5 +1,5 @@
 let allEnemies = [];
-let player;
+let enemy, player;
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -39,8 +39,10 @@ function createEnemies() {
     let x = 0;
     let y = 83 + (83 * i);
     let speed = 200 - (50 * i);
-    //create enemies and add to allEnemies array
-    allEnemies[i] = new Enemy(x, y, speed);
+    //create enemies
+    enemy = new Enemy(x, y, speed);
+    //and add to allEnemies array
+    allEnemies.push(enemy);
   }
 }
 createEnemies();
