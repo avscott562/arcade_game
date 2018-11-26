@@ -35,16 +35,24 @@ var Player = function(x, y) {
   this.handleInput = function(key) {
     switch(key) {
       case key = 'left':
-        this.x -= 101;
+        if(this.x > 0) {
+          this.x -= 101;
+        }
         break;
       case key = 'up':
-        this.y -= 83;
+        if(this.y > 0) {
+          this.y -= 83;
+        }
         break;
       case key = 'right':
-        this.x += 101;
+        if(this.x < 404) {
+          this.x += 101;
+        }
         break;
       case key = 'down':
-        this.y += 83;
+        if(this.y < 410) {
+          this.y += 83;
+        }
         break;
     }
   };
