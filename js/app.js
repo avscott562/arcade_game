@@ -35,16 +35,16 @@ var Player = function(x, y) {
   this.handleInput = function(key) {
     switch(key) {
       case key = 'left':
-        this.x = x - 90;
+        this.x -= 101;
         break;
       case key = 'up':
-        this.y = y - 101;
+        this.y -= 83;
         break;
       case key = 'right':
-        this.x = x + 90;
+        this.x += 101;
         break;
       case key = 'down':
-        this.y = y + 101;
+        this.y += 83;
         break;
     }
   };
