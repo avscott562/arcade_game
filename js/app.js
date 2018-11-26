@@ -1,5 +1,5 @@
 let allEnemies = [];
-let enemy, player;
+let enemy, player, key;
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -32,9 +32,22 @@ var Player = function(x, y) {
   this.x = x;
   this.y = y;
   this.sprite = 'images/char-horn-girl.png';
-  // handleInput() {
-  //
-  // };
+  this.handleInput = function(key) {
+    switch(key) {
+      case key = 'left':
+        this.x = x - 90;
+        break;
+      case key = 'up':
+        this.y = y - 101;
+        break;
+      case key = 'right':
+        this.x = x + 90;
+        break;
+      case key = 'down':
+        this.y = y + 101;
+        break;
+    }
+  };
 };
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -52,7 +65,7 @@ function createEnemies() {
   for (let i = 0; i < 3; i++) {
     //initialize variables for enemies
     let x = 0;
-    let y = 83 + (83 * i);
+    let y = 75 + (75 * i);
     let speed = 200 - (50 * i);
     //create enemies
     enemy = new Enemy(x, y, speed);
