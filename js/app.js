@@ -1,5 +1,6 @@
 let allEnemies = [];
 let enemy, player, key;
+let playerXoptions = [0, 101, 202, 303, 404];
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -65,7 +66,14 @@ var Player = function(x, y) {
 // This class requires an update(), render() and
 // a handleInput() method.
 Player.prototype.update = function(dt) {
-
+  for(let item of allEnemies) {
+    if (this.y === item.y + 8) {
+      //console.log('we are in the same row');
+      if (Math.abs(this.x - item.x) === 0) {
+        //console.log('same x position');
+      };
+    };
+  };
 };
 
 Player.prototype.render = function() {
