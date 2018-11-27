@@ -24,7 +24,7 @@ Enemy.prototype.update = function(dt) {
     if(this.x < 505) {
       this.x += (this.speed * dt);
     } else {
-      this.x = -303;
+      this.x = -202;
     };
 };
 
@@ -66,11 +66,13 @@ var Player = function(x, y) {
 // This class requires an update(), render() and
 // a handleInput() method.
 Player.prototype.update = function(dt) {
+  //console.log(this.x);
   for(let item of allEnemies) {
     if (this.y === item.y + 8) {
       //console.log('we are in the same row');
-      if (Math.abs(this.x - item.x) === 0) {
-        //console.log('same x position');
+      if (this.x < item.x + 92 && this.x + 80 > item.x) {
+        this.x = 202;
+        this.y = 410;
       };
     };
   };
@@ -87,7 +89,7 @@ Player.prototype.render = function() {
     //initialize variables for enemies
     let x = -101;
     let y = 70 + (83 * i);
-    let speed = 425 - (50 * i);
+    let speed = 125 - (50 * i);
     //create enemies
     enemy = new Enemy(x, y, speed);
     //and add to allEnemies array
