@@ -1,15 +1,12 @@
 let allEnemies = [];
 let enemy, player, key;
-let playerXoptions = [0, 101, 202, 303, 404];
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
+    // initialize variables and parameters
     this.x = x;
     this.y = y;
     this.speed = speed;
-
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -18,12 +15,11 @@ var Enemy = function(x, y, speed) {
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    // set speed
     if(this.x < 505) {
       this.x += (this.speed * dt);
     } else {
+      //ensure enemy wraps board
       this.x = -202;
     };
 };
@@ -35,9 +31,13 @@ Enemy.prototype.render = function() {
 
 // Now write your own player class
 var Player = function(x, y) {
+  //initialize variables, parameters, and methods for player class.
+  //position
   this.x = x;
   this.y = y;
+  //add image
   this.sprite = 'images/char-horn-girl.png';
+  //add function to respond to arrow keys
   this.handleInput = function(key) {
     switch(key) {
       case key = 'left':
@@ -66,24 +66,30 @@ var Player = function(x, y) {
 // This class requires an update(), render() and
 // a handleInput() method.
 Player.prototype.update = function(dt) {
-  //console.log(this.x);
   for(let item of allEnemies) {
-    if (this.y === item.y + 8) {
-      //console.log('we are in the same row');
-      if (this.x < item.x + 92 && this.x + 80 > item.x) {
-        this.x = 202;
-        this.y = 410;
+    //see if player is in winning row
+    if (this.y === -5) {
+      console.log('made it!');
+    } else {
+      //see if player and enemy collide
+      if (this.y === item.y + 8) {
+        if (this.x < item.x + 92 && this.x + 80 > item.x) {
+          //if collision occurs, move player back to starting position
+          this.x = 202;
+          this.y = 410;
+        };
       };
     };
   };
 };
 
 Player.prototype.render = function() {
+  //render image of player at designated position
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 
-// Now instantiate your objects.
+// create enemies
 (function createEnemies() {
   for (let i = 0; i < 3; i++) {
     //initialize variables for enemies
@@ -98,7 +104,7 @@ Player.prototype.render = function() {
 }());
 
 //choosePlayer();
-// Place the player object in a variable called player
+// create player
 player = new Player(202, 410);
 
 // This listens for key presses and sends the keys to your
