@@ -2,10 +2,27 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale=1">
     <title>Scott Frogger</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div id="player-modal" class="modal">
+      <div class="player-modal-content">
+        <img src="images/char-boy.png" alt="boy player" class="player">
+        <img src="images/char-cat-girl.png" alt="cat girl player" class="player">
+        <img src="images/char-horn-girl.png" alt="girl with horns player" class="player">
+        <img src="images/char-pink-girl.png" alt="girl with pink hair player" class="player">
+        <img src="images/char-princess-girl.png" alt="princess player" class="player">
+      </div>
+    </div>
+    <div id="win-modal" class="modal">
+      <div class="win-modal-content">
+        <span class="win-phrase">
+          Yay!  You made it!
+        </span>
+      </div>
+    </div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>

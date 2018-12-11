@@ -70,6 +70,7 @@ Player.prototype.update = function(dt) {
     //see if player is in winning row
     if (this.y === -5) {
       console.log('made it!');
+      //cancelAnimationFrame(animaId);
     } else {
       //see if player and enemy collide
       if (this.y === item.y + 8) {
