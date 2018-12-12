@@ -1,3 +1,69 @@
 body {
     text-align: center;
 }
+
+#win-modal {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  /* justify-content: center; */
+  /* align-items: top; */
+  overflow: auto;
+}
+
+.modal-content {
+  height: content-box;
+  width: 20%;
+  background-color: #fff;
+  position: relative;
+  top: 5%;
+  padding: 18px;
+  margin: 10% auto;
+  /* text-align: center; */
+  border-radius: 5px;
+}
+
+.wm-header {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+#wm-content-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding-top: 5px;
+  padding-right: 10px;
+  color: #d1d1e0;
+}
+
+#wm-content-close:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.wm-footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px 20px 20px 20px;
+  margin: 30px 20px 20px 20px;
+}
+
+.wm-button {
+  background-color: #fff;
+  border-radius: 10px;
+  height: 30px;
+  width: content-box;
+}
+
+.wm-button:hover {
+  background-color: #0000ff;
+  color: white;
+  cursor: pointer;
+}

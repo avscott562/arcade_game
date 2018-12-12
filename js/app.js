@@ -1,5 +1,6 @@
 let allEnemies = [];
 let enemy, player, key;
+let winModal = document.getElementById('win-modal');
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -70,6 +71,7 @@ Player.prototype.update = function(dt) {
     //see if player is in winning row
     if (this.y === -5) {
       console.log('made it!');
+      winModal.style.display = 'block';
       //cancelAnimationFrame(animaId);
     } else {
       //see if player and enemy collide
