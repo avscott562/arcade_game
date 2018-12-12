@@ -1,6 +1,9 @@
 let allEnemies = [];
 let enemy, player, key;
 let winModal = document.getElementById('win-modal');
+let mClose = document.getElementById('wm-content-close');
+let wmClose = document.getElementById('wm-close');
+let replay = document.getElementById('wm-replay');
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -70,7 +73,6 @@ Player.prototype.update = function(dt) {
   for(let item of allEnemies) {
     //see if player is in winning row
     if (this.y === -5) {
-      console.log('made it!');
       winModal.style.display = 'block';
       //cancelAnimationFrame(animaId);
     } else {
@@ -91,9 +93,8 @@ Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
 // create enemies
-(function createEnemies() {
+function createEnemies() {
   for (let i = 0; i < 3; i++) {
     //initialize variables for enemies
     let x = -101;
@@ -104,11 +105,19 @@ Player.prototype.render = function() {
     //and add to allEnemies array
     allEnemies.push(enemy);
   }
-}());
+}
 
 //choosePlayer();
-// create player
-player = new Player(202, 410);
+newGame();
+
+function newGame() {
+  allEnemies = [];
+  createEnemies();
+  // create player
+  player = new Player(202, 410);
+  //close modal
+  closeModal();
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -122,3 +131,14 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+//add eventLisenters for winning modal targets
+mClose.addEventListener('click', closeModal);
+wmClose.addEventListener('click', closeModal);
+replay.addEventListener('click', newGame);
+
+//function to close modal
+function closeModal() {
+  console.log('I was clicked');
+  winModal.style.display = 'none';
+}
