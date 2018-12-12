@@ -110,7 +110,7 @@ function createEnemies() {
 //choosePlayer();
 newGame();
 
-function newGame() {
+function newGame() {  
   allEnemies = [];
   createEnemies();
   // create player
