@@ -4,11 +4,17 @@
 ## Table of Contents
 
 - [Instructions](#instructions)
+  -- [How to Run the Game](#How to Run the Game)
+  -- [How to Play the Game](#How to Play the Game)
 - [Contributing](#contributing)
 
+
+
 ## Instructions
--[To Run the Game](###How to Run the Game)
--[To Play the Game](###How to Play the Game)
+### How to Run the Game
+
+
+### How to Play the Game
 
 
 ## Contributing
