@@ -110,14 +110,15 @@ function createEnemies() {
   }
 }
 
-//create player from chosen player
+//create player from chosen character
 function createPlayer() {
   let pImage = this.getAttribute('src');
   //console.log(pImage);
   player = new Player(202, 410, pImage);
+  setTimeout(closePlayModal, 100);
 }
 
-//choose player
+//allow user to choose player character
 Array.from(characters).forEach(function(char) {
   char.addEventListener('click', createPlayer)
  })
@@ -152,11 +153,14 @@ document.addEventListener('keyup', function(e) {
 mClose.addEventListener('click', closeModal);
 wmClose.addEventListener('click', closeModal);
 replay.addEventListener('click', newGame);
-playClose.addEventListener('click', function() {
-  pModal.style.display = 'none';
-});
+playClose.addEventListener('click', closePlayModal);
 
-//function to close modal
+//function to close win modal
 function closeModal() {
   winModal.style.display = 'none';
+}
+
+//function to close player modal
+function closePlayModal() {
+  pModal.style.display = 'none';
 }
