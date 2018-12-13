@@ -2,14 +2,13 @@ body {
     text-align: center;
 }
 
-#win-modal {
+.modal {
   height: 100%;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
   /* justify-content: center; */
   /* align-items: top; */
   overflow: auto;
@@ -27,13 +26,33 @@ body {
   border-radius: 5px;
 }
 
-.wm-header {
+#player-modal {
+  display: inline-block;
+  width: 100%;
+}
+
+#win-modal {
+  display: none;
+}
+
+.wm-header, .pm-header {
   display: flex;
   padding: 0;
   margin: 0;
 }
 
-#wm-content-close {
+.pm-title {
+  text-align: center;
+  justify-content: center;
+}
+
+.player:hover {
+  cursor: pointer;
+  border: .5em solid blue;
+  border-radius: 30px;
+}
+
+#wm-content-close, #pm-content-close {
   position: absolute;
   top: 0;
   right: 0;
@@ -43,7 +62,7 @@ body {
   color: #d1d1e0;
 }
 
-#wm-content-close:hover {
+#wm-content-close:hover, #pm-content-close:hover {
   color: black;
   cursor: pointer;
 }

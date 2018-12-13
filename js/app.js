@@ -4,6 +4,9 @@ let winModal = document.getElementById('win-modal');
 let mClose = document.getElementById('wm-content-close');
 let wmClose = document.getElementById('wm-close');
 let replay = document.getElementById('wm-replay');
+let pModal = document.getElementById('player-modal');
+let playClose = document.getElementById('pm-content-close');
+let characters = document.getElementsByClassName('player');
 
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
@@ -34,13 +37,13 @@ Enemy.prototype.render = function() {
 };
 
 // Now write your own player class
-var Player = function(x, y) {
+var Player = function(x, y, sprite) {
   //initialize variables, parameters, and methods for player class.
   //position
   this.x = x;
   this.y = y;
   //add image
-  this.sprite = 'images/char-horn-girl.png';
+  this.sprite = sprite;
   //add function to respond to arrow keys
   this.handleInput = function(key) {
     switch(key) {
@@ -99,7 +102,7 @@ function createEnemies() {
     //initialize variables for enemies
     let x = -101;
     let y = 70 + (83 * i);
-    let speed = 125 - (50 * i);
+    let speed = Math.floor(Math.random()*(600-200) + 175);
     //create enemies
     enemy = new Enemy(x, y, speed);
     //and add to allEnemies array
@@ -107,16 +110,29 @@ function createEnemies() {
   }
 }
 
-//choosePlayer();
+//create player from chosen player
+function createPlayer() {
+  let pImage = this.getAttribute('src');
+  //console.log(pImage);
+  player = new Player(202, 410, pImage);
+}
+
+//choose player
+Array.from(characters).forEach(function(char) {
+  char.addEventListener('click', createPlayer)
+ })
+
 newGame();
 
-function newGame() {  
+function newGame() {
   allEnemies = [];
   createEnemies();
   // create player
-  player = new Player(202, 410);
+  //createPlayer();
+  player = new Player(202, 410, "images/char-boy.png");
   //close modal
   closeModal();
+  pModal.style.display = 'block';
 }
 
 // This listens for key presses and sends the keys to your
@@ -132,13 +148,15 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-//add eventLisenters for winning modal targets
+//add eventLisenters for modal targets
 mClose.addEventListener('click', closeModal);
 wmClose.addEventListener('click', closeModal);
 replay.addEventListener('click', newGame);
+playClose.addEventListener('click', function() {
+  pModal.style.display = 'none';
+});
 
 //function to close modal
 function closeModal() {
-  console.log('I was clicked');
   winModal.style.display = 'none';
 }

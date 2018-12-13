@@ -24,6 +24,8 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime,
         id,
+        playModal = doc.getElementById('player-modal'),
+        pmClose = doc.getElementById('pm-content-close');
         replay = doc.getElementById('wm-replay');
 
 
@@ -34,6 +36,15 @@ var Engine = (function(global) {
     replay.addEventListener('click', function() {
       win.requestAnimationFrame(main);
     });
+
+    pmClose.addEventListener('click', function() {
+      win.requestAnimationFrame(main);
+      playModal.style.display = 'none';
+    });
+
+    if (playModal.style.disply === 'block') {
+      win.cancelAnimationFrame(id);
+    }
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
