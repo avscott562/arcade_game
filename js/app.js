@@ -28,7 +28,7 @@ Enemy.prototype.update = function(dt) {
     } else {
       //ensure enemy wraps board
       this.x = -202;
-    };
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -85,10 +85,10 @@ Player.prototype.update = function(dt) {
           //if collision occurs, move player back to starting position
           this.x = 202;
           this.y = 410;
-        };
-      };
-    };
-  };
+        }
+      }
+    }
+  }
 };
 
 Player.prototype.render = function() {
@@ -120,8 +120,8 @@ function createPlayer() {
 
 //allow user to choose player character
 Array.from(characters).forEach(function(char) {
-  char.addEventListener('click', createPlayer)
- })
+  char.addEventListener('click', createPlayer);
+});
 
 newGame();
 
