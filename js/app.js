@@ -81,7 +81,7 @@ Player.prototype.update = function(dt) {
     } else {
       //see if player and enemy collide
       if (this.y === item.y + 8) {
-        if (this.x < item.x + 70 && this.x + 70 > item.x) {
+        if (this.x < item.x + 70 && this.x + 70 > item.x) {          
           //if collision occurs, move player back to starting position
           this.x = 202;
           this.y = 410;
@@ -102,7 +102,7 @@ function createEnemies() {
     //initialize variables for enemies
     let x = -101;
     let y = 70 + (83 * i);
-    let speed = Math.floor(Math.random()*(800-200) + 100);
+    let speed = Math.floor(Math.random()*(600-200) + 175);
     //create enemies
     enemy = new Enemy(x, y, speed);
     //and add to allEnemies array
